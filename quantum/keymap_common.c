@@ -57,6 +57,17 @@ action_t action_for_keycode(uint16_t keycode) {
         case KC_LEFT_CTRL ... KC_RIGHT_GUI:
             action.code = ACTION_KEY(keycode);
             break;
+#if ENABLE_APPLE_FN_KEY
+        case KC_APPLE_FN:
+            action.code = ACTION_APPLE_FN();
+            break;
+        case QK_APPLE_FN_MOD ... QK_APPLE_FN_MOD_MAX:
+            action.code = ACTION_APPLE_FN_KEY(keycode & 0xFF);
+            break;
+        case QK_APPLE_FN ... QK_APPLE_FN_MAX:
+            action.code = ACTION_APPLE_FN_LAYER(keycode & 0x1F);
+            break;
+#endif
 #ifdef EXTRAKEY_ENABLE
         case KC_SYSTEM_POWER ... KC_SYSTEM_WAKE:
             action.code = ACTION_USAGE_SYSTEM(KEYCODE2SYSTEM(keycode));

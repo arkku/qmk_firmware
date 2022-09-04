@@ -37,6 +37,12 @@ enum quantum_keycodes {
     QK_RALT                 = 0x1400,
     QK_RGUI                 = 0x1800,
     QK_MODS_MAX             = 0x1FFF,
+#if ENABLE_APPLE_FN_KEY
+    QK_APPLE_FN_MOD         = 0x3E00,
+    QK_APPLE_FN_MOD_MAX     = 0x3EFF,
+    QK_APPLE_FN             = 0x3FE0,
+    QK_APPLE_FN_MAX         = 0x3FFF,
+#endif
     QK_LAYER_TAP            = 0x4000,
     QK_LAYER_TAP_MAX        = 0x4FFF,
     QK_TO                   = 0x5000,
@@ -825,6 +831,11 @@ enum quantum_keycodes {
 
 // L-ayer, T-ap - 256 keycode max, 16 layer max
 #define LT(layer, kc) (QK_LAYER_TAP | (((layer)&0xF) << 8) | ((kc)&0xFF))
+
+#if ENABLE_APPLE_FN_KEY
+#define APFN_LAYER(layer)   (QK_APPLE_FN | ((layer) & 0x1F))
+#define APFN_KEY(key)       (QK_APPLE_FN_MOD | ((key) & 0xFF))
+#endif
 
 // M-od, T-ap - 256 keycode max
 #define MT(mod, kc) (QK_MOD_TAP | (((mod)&0x1F) << 8) | ((kc)&0xFF))

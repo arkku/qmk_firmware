@@ -502,8 +502,16 @@ enum internal_special_keycodes {
     KC_MEDIA_FAST_FORWARD,
     KC_MEDIA_REWIND,
     KC_BRIGHTNESS_UP,
-    KC_BRIGHTNESS_DOWN
+    KC_BRIGHTNESS_DOWN,
+
+#if ENABLE_APPLE_FN_KEY
+    KC_APFN,
+#endif
 };
+
+#if ENABLE_APPLE_FN_KEY
+#define KC_APPLE_FN KC_APFN
+#endif
 
 enum mouse_keys {
 /* Mouse Buttons */

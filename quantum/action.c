@@ -306,6 +306,10 @@ void register_button(bool pressed, enum mouse_buttons button) {
 }
 #endif
 
+#if ENABLE_APPLE_FN_KEY
+static bool virtual_apple_fn_on = false;
+#endif
+
 /** \brief Take an action and processes it.
  *
  * FIXME: Needs documentation.
@@ -585,6 +589,53 @@ void process_action(keyrecord_t *record, action_t action) {
                 layer_off(action.layer_mods.layer);
             }
             break;
+#if ENABLE_APPLE_FN_KEY
+        case ACT_APPLE_FN:
+            if (event.pressed) {
+                if (action.key.code) {
+                    if (!virtual_apple_fn_on) {
+                        add_key(KC_APPLE_FN);
+                        send_keyboard_report();
+                        virtual_apple_fn_on = true;
+                    }
+                    add_key(action.key.code);
+                    send_keyboard_report();
+                } else {
+                    virtual_apple_fn_on = false;
+                    register_code(KC_APPLE_FN);
+                }
+            } else {
+                if (action.key.code) {
+                    del_key(action.key.code);
+                    if (virtual_apple_fn_on) {
+                        del_key(KC_APPLE_FN);
+                        virtual_apple_fn_on = false;
+                    }
+                    send_keyboard_report();
+                } else {
+                    unregister_code(KC_APPLE_FN);
+                }
+            }
+            break;
+#ifdef NO_ACTION_TAPPING
+        case ACT_LAYER_TAP:
+        case ACT_LAYER_TAP_EXT:
+            if (action.layer_tap.code == OP_APPLE_FN) {
+                if (event.pressed) {
+                    layer_on(action.layer_tap.val);
+                    register_code(KC_APPLE_FN);
+                    virtual_apple_fn_on = true;
+                } else {
+                    if (virtual_apple_fn_on) {
+                        virtual_apple_fn_on = false;
+                        unregister_code(KC_APPLE_FN);
+                    }
+                    layer_off(action.layer_tap.val);
+                }
+            }
+            break;
+#endif
+#endif
 #    ifndef NO_ACTION_TAPPING
         case ACT_LAYER_TAP:
         case ACT_LAYER_TAP_EXT:
@@ -653,6 +704,21 @@ void process_action(keyrecord_t *record, action_t action) {
                     }
                     break;
 #        endif
+#if ENABLE_APPLE_FN_KEY
+                case OP_APPLE_FN:
+                    if (event.pressed) {
+                        layer_on(action.layer_tap.val);
+                        register_code(KC_APPLE_FN);
+                        virtual_apple_fn_on = true;
+                    } else {
+                        if (virtual_apple_fn_on) {
+                            virtual_apple_fn_on = false;
+                            unregister_code(KC_APPLE_FN);
+                        }
+                        layer_off(action.layer_tap.val);
+                    }
+                    break;
+#endif
                 default:
                     /* tap key */
                     if (event.pressed) {
@@ -892,6 +958,13 @@ __attribute__((weak)) void register_code(uint8_t code) {
 */
 #endif
         {
+#if ENABLE_APPLE_FN_KEY
+            if (virtual_apple_fn_on) {
+                del_key(KC_APPLE_FN);
+                send_keyboard_report();
+                virtual_apple_fn_on = false;
+            }
+#endif
             // Force a new key press if the key is already pressed
             // without this, keys with the same keycode, but different
             // modifiers will be reported incorrectly, see issue #1708
@@ -917,6 +990,12 @@ __attribute__((weak)) void register_code(uint8_t code) {
     else if IS_MOUSEKEY (code) {
         mousekey_on(code);
         mousekey_send();
+    }
+#endif
+#if ENABLE_APPLE_FN_KEY
+    else if (code == KC_APPLE_FN) {
+        add_key(code);
+        send_keyboard_report();
     }
 #endif
 }
@@ -977,6 +1056,12 @@ __attribute__((weak)) void unregister_code(uint8_t code) {
     else if IS_MOUSEKEY (code) {
         mousekey_off(code);
         mousekey_send();
+    }
+#endif
+#if ENABLE_APPLE_FN_KEY
+    else if (code == KC_APPLE_FN) {
+        del_key(code);
+        send_keyboard_report();
     }
 #endif
 }
