@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER 0x0001
 #define MANUFACTURER Tom Wong-Cornall/Ellipse/Purdea Andrei/kmnov2017/listofoptions
 #define PRODUCT modelfkeyboards.com Brand New Beamspring SSK by Model F Labs
-#define DESCRIPTION QMK firmware for the modelfkeyboards.com brand new beamspring reproductions using a 'universal' xwhatsit controller PCB
+//#define DESCRIPTION QMK firmware for the modelfkeyboards.com brand new beamspring reproductions using a 'universal' xwhatsit controller PCB
 
 /* key matrix size */
 #define MATRIX_ROWS 8
@@ -197,8 +197,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* disable these deprecated features by default */
 #ifndef LINK_TIME_OPTIMIZATION_ENABLE
-  #define NO_ACTION_MACRO
-  #define NO_ACTION_FUNCTION
+//#define NO_ACTION_MACRO
+//#define NO_ACTION_FUNCTION
 #endif
 /*
  * MIDI options
@@ -285,7 +285,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // By default we set up for support of xwhatsit's solenoid driver board.
 // Comment out HAPTIC_ENABLE_PIN if you don't have an enable pin:
 #define HAPTIC_ENABLE_PIN D3
-// We disable haptic feedbeck during USB low power conditions:
+// We disable haptic feedback during USB low power conditions:
 #define HAPTIC_OFF_IN_LOW_POWER 1
 // Change this if you are using a different pin for the solenoid:
 #define SOLENOID_PIN D2

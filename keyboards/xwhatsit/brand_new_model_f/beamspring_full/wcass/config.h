@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER 0x0001
 #define MANUFACTURER Tom Wong-Cornall/Ellipse/wcass/Purdea Andrei
 #define PRODUCT modelfkeyboards.com Brand New Beamspring Full Size Keyboard by Model F Labs
-#define DESCRIPTION QMK firmware for the modelfkeyboards.com brand new beamspring reproductions
+//#define DESCRIPTION QMK firmware for the modelfkeyboards.com brand new beamspring reproductions
 
 /* key matrix size */
 #define MATRIX_ROWS 8
@@ -194,8 +194,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* disable these deprecated features by default */
 #ifndef LINK_TIME_OPTIMIZATION_ENABLE
-  #define NO_ACTION_MACRO
-  #define NO_ACTION_FUNCTION
+//#define NO_ACTION_MACRO
+//#define NO_ACTION_FUNCTION
 #endif
 /*
  * MIDI options
@@ -285,7 +285,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Note: The B3 pin on normal wcass controllers is a corner-pin of the atmega, which is not used, so it's easy to solder to for custom modifications.
 // In future versions of the wcass board, this pin may be bought out to a header.
 
-// We disable haptic feedbeck during USB low power conditions:
+// We disable haptic feedback during USB low power conditions:
 #define HAPTIC_OFF_IN_LOW_POWER 1
 // Change this if you are using a different pin for the solenoid:
 #define SOLENOID_PIN B7
