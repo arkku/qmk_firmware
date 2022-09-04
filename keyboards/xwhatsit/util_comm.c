@@ -21,8 +21,7 @@
 #include <string.h>
 #include <platforms/eeprom.h>
 
-#ifdef RAW_ENABLE
-#if defined(KEYBOARD_SHARED_EP)
+#if defined(KEYBOARD_SHARED_EP) && defined(RAW_ENABLE)
 #error "Enabling the KEYBOARD_SHARED_EP will make the util be unable to communicate with the firmware, because due to hidapi limiations, the util can't figure out which interface to talk to, so it hardcodes interface zero."
 #endif
 
@@ -74,7 +73,7 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
             response[2] = UTIL_COMM_RESPONSE_OK;
             {
                 matrix_row_t current_matrix[MATRIX_ROWS];
-                matrix_scan_raw(current_matrix);
+                matrix_scan_custom(current_matrix);
                 char *current_matrix_ptr = (char *)current_matrix;
                 int offset = 0;
                 if (sizeof(current_matrix) > 32-3)
@@ -217,7 +216,7 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
         case UTIL_COMM_GET_ROW_STATE:
             {
                 response[2] = UTIL_COMM_RESPONSE_OK;
-                response[3] = test_single(255, 0, NULL);
+                response[3] = scan_physical_column(255, 0, NULL);
                 break;
             }
         default:
@@ -225,4 +224,3 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
     }
     raw_hid_send(response, sizeof(response));
 }
-#endif
