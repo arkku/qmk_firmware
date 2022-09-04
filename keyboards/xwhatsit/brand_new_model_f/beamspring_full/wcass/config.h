@@ -267,6 +267,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CAPSENSE_CAL_ENABLED 1
 // #define CAPSENSE_CAL_ENABLED 0
 #define CAPSENSE_CAL_DEBUG 1
+#define CAPSENSE_CAL_AUTOSAVE 1 // Save calibration to EEPROM
 // #define CAPSENSE_CAL_DEBUG 0
 #define CAPSENSE_CAL_INIT_REPS 16
 #define CAPSENSE_CAL_EACHKEY_REPS 16
