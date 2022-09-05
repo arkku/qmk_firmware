@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
 #define MANUFACTURER xwhatsit/Ellipse/pandrew/Arkku
-#define PRODUCT modelfkeyboards.com Brand New F62/F77 Model F Keyboard by Model F Labs
+#define PRODUCT modelfkeyboards.com Brand New F77 Model F Keyboard by Model F Labs
 //#define DESCRIPTION QMK firmware for the modelfkeyboards.com reproduction of the IBM Model F keyboards using the original Xwhatsit model F controller PCB
 
 /* key matrix size */
