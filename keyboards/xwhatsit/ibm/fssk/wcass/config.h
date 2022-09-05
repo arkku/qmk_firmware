@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Tom Wong-Cornall/wcass/Purdea Andrei
+#define MANUFACTURER xwhatsit/wcass/pandrew/Arkku
 #define PRODUCT IBM Model FSSK
 //#define DESCRIPTION QMK firmware for the IBM Model FSSK keyboard using the wcass model F controller PCB
 

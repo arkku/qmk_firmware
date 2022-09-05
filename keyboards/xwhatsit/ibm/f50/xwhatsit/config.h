@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Tom Wong-Cornall/Purdea Andrei
+#define MANUFACTURER xwhatsit/pandrew/Arkku
 #define PRODUCT IBM 4704 F50
 //#define DESCRIPTION QMK firmware for the IBM 4704 F50 keyboard using the original xwhatsit model F controller PCB
 

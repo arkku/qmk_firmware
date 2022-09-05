@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER wcass/Tom Wong-Cornall/wcass/Purdea Andrei
+#define MANUFACTURER wcass/xwhatsit/wcass/pandrew/Arkku
 #define PRODUCT IBM Model F XT/Bigfoot Xtant
 //#define DESCRIPTION QMK firmware for the IBM Xtant keyboard using the wcass model F controller PCB
 

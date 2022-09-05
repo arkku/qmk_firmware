@@ -1,5 +1,5 @@
 /*
-Copyright 2020-2021 Purdea Andrei
+Copyright 2020-2021 pandrew
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Tom Wong-Cornall/Alectardy98/Purdea Andrei/kmnov2017/listofoptions
+#define MANUFACTURER xwhatsit/Alectardy98/pandrew/Arkku/kmnov2017/listofoptions
 #define PRODUCT IBM Model F XT/Bigfoot FXTal
 //#define DESCRIPTION QMK firmware for the IBM Model F XT/Bigfoot FXTal keyboard using a 'universal' xwhatsit controller PCB
 
