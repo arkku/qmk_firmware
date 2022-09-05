@@ -40,7 +40,7 @@ std::vector<std::string> Communication::scan()
     QMutexLocker locker(&mutex);
     std::vector<std::string> ret;
     //printf("Scanning\n");
-    hid_device_info *enu = hid_enumerate(0x0481, 0x0002);
+    hid_device_info *enu = hid_enumerate(0x1209, 0x4704);
     hid_device_info *devinfo = enu;
     while (devinfo != NULL)
     {

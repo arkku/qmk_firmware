@@ -19,7 +19,7 @@ If you have added a new keyboard, or changed layout macros, then please run: ```
 5) ```make clean && make -j```
 6) Optionally: add the following rules to ```/etc/udev/rules.d/my_preferred_filename.rules```
    ```
-   SUBSYSTEMS=="usb", ATTRS{idVendor}=="0481", ATTRS{idProduct}=="0002", MODE:="0666"
+   SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="4704", MODE:="0666"
    ```
    And then restart udev
 7) ```./util``` Or ```sudo ./util``` (if you have not set up udev)
