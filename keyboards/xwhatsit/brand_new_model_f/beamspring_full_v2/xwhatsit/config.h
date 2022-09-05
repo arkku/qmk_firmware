@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Tom Wong-Cornall/Ellipse/Purdea Andrei
+#define MANUFACTURER xwhatsit/Ellipse/pandrew/Arkku
 #define PRODUCT modelfkeyboards.com Brand New Beamspring Full Size Keyboard by Model F Labs
 //#define DESCRIPTION QMK firmware for the modelfkeyboards.com brand new beamspring reproductions using the original Xwhatsit model F controller PCB
 

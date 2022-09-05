@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Tom Wong-Cornall/Ellipse/wcass/Purdea Andrei
+#define MANUFACTURER xwhatsit/Ellipse/wcass/pandrew/Arkku
 #define PRODUCT modelfkeyboards.com Brand New F62/F77 Model F Keyboard by Model F Labs
 //#define DESCRIPTION QMK firmware for the modelfkeyboards.com reproduction of the IBM Model F keyboards
 

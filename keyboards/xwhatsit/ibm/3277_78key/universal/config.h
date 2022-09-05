@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0x1209
 #define PRODUCT_ID 0x4704
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Tom Wong-Cornall/Purdea Andrei/kmnov2017/listofoptions/emdude
+#define MANUFACTURER xwhatsit/pandrew/Arkku/kmnov2017/listofoptions/emdude
 #define PRODUCT IBM 3277 78-key
 //#define DESCRIPTION QMK firmware for the IBM 3277 78-key keyboards using emdude sense PCB, and a 'universal' xwhatsit controller PCB
 
