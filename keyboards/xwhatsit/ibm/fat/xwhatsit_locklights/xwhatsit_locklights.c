@@ -16,7 +16,9 @@
 
 #include "xwhatsit_locklights.h"
 
-const char *KEYBOARD_FILENAME = __FILE__; // used by util_comm
+#include <progmem.h>
+
+const char PROGMEM KEYBOARD_FILENAME[] = __FILE__; // used by util_comm
 
 void keyboard_post_init_kb(void)
 {
