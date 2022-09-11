@@ -110,14 +110,15 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
         case UTIL_COMM_GET_KEYBOARD_FILENAME:
             {
                 response[2] = UTIL_COMM_RESPONSE_OK;
-                if (data[3] >= strlen(KEYBOARD_FILENAME) + 1)
-                {
+                if (data[3] >= strlen_P(KEYBOARD_FILENAME) + 1) {
                     response[3] = 0;
                 } else {
                     const char *substring = KEYBOARD_FILENAME + data[3];
-                    size_t substring_length = strlen(substring) + 1;
-                    if (substring_length > RAW_EPSIZE - 3) substring_length = RAW_EPSIZE - 3;
-                    memcpy(&response[3], substring, substring_length);
+                    size_t substring_length = strlen_P(substring) + 1;
+                    if (substring_length > RAW_EPSIZE - 3) {
+                        substring_length = RAW_EPSIZE - 3;
+                    }
+                    memcpy_P(&response[3], substring, substring_length);
                 }
                 break;
             }
