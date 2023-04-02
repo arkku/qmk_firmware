@@ -31,7 +31,7 @@
  */
 
 #include <quantum.h>
-//#include "matrix_manipulate.h" // <- included from post_config.h
+#include "matrix_manipulate.h" // <- included from post_config.h
 #include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -43,8 +43,9 @@
 #include <qmk_port.h>
 #else 
 // Backported from AAKBD to QMK - helpers
+#include <keymap.h>
 #define INLINE inline __attribute__((always_inline))
-#define usb_keycode_for_matrix(row, col) pgm_read_word(&keymaps[0][(row)][(col)])
+#define usb_keycode_for_matrix(row, col) keycode_at_keymap_location_raw(0, (row), (col))
 #endif
 
 #ifndef CAPSENSE_HARDCODED_THRESHOLD

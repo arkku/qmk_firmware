@@ -307,5 +307,24 @@
 #    error "Please specify whether the flyplate is pushed down or pulled up on keypress!"
 #endif
 
-// This must be included to update EECONFIG_SIZE
-#include "matrix_manipulate.h"
+// Backwards compatibility keycode aliases
+#define KC_SLCK KC_SCROLL_LOCK
+#define KC_NLCK KC_NUM_LOCK
+#define KC_GESC QK_GRAVE_ESCAPE
+#define DEBUG QK_DEBUG_TOGGLE
+#define RESET QK_REBOOT
+#define EEP_RST QK_CLEAR_EEPROM
+
+#if CAPSENSE_CAL_ENABLED
+#ifndef MATRIX_ROW_T_SIZE
+#define MATRIX_ROW_T_SIZE 2
+#endif
+
+#define CAPSENSE_CAL_SAVE_HEADER_SIZE 6
+#define CAPSENSE_CAL_SAVE_TOTAL_SIZE ((CAPSENSE_CAL_SAVE_HEADER_SIZE * 2) + (CAPSENSE_CAL_BINS * (((MATRIX_CAPSENSE_ROWS + 1) * MATRIX_ROW_T_SIZE) + 2)) + 2 + 2 + 2)
+
+#else // ^ CAPSENSE_CAL_ENABLED
+#define CAPSENSE_CAL_SAVE_TOTAL_SIZE 0
+#endif
+
+#define EECONFIG_KB_DATA_SIZE CAPSENSE_CAL_SAVE_TOTAL_SIZE

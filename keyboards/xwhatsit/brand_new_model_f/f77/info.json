@@ -2,6 +2,12 @@
     "keyboard_name": "brand_new_model_f/f77",
     "url": "",
     "maintainer": "Purdea Andrei",
+    "manufacturer": "xwhatsit/Ellipse/pandrew/Arkku/kmnov2017/listofoptions",
+    "usb": {
+      "pid": "0x4704",
+      "vid": "0x1209",
+      "device_version": "1.0.0"
+    },
     "width": 18.25,
     "height": 5,
     "layouts": {
